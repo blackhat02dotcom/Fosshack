@@ -1,0 +1,74 @@
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+mongoose.connect("mongodb://localhost:27017/study_assistant", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+
+const TaskSchema = new mongoose.Schema({
+    title: String,
+    priority: String,
+    deadline: Date,
+    status: { type: String, default: "pending" },
+});
+
+const Task = mongoose.model("Task", TaskSchema);
+
+app.post("/tasks", async (req, res) => {
+    const task = new Task(req.body);
+    await task.save();
+    res.send(task);
+});
+
+app.get("/tasks", async (req, res) => {
+    const tasks = await Task.find();
+    res.send(tasks);
+});
+
+const StudySessionSchema = new mongoose.Schema({
+    duration: Number,
+    timestamp: { type: Date, default: Date.now },
+});
+
+const StudySession = mongoose.model("StudySession", StudySessionSchema);
+
+app.post("/study-sessions", async (req, res) => {
+    const session = new StudySession(req.body);
+    await session.save();
+    res.send(session);
+});
+
+app.get("/study-sessions", async (req, res) => {
+    const sessions = await StudySession.find();
+    res.send(sessions);
+});
+
+const NoteSchema = new mongoose.Schema({
+    title: String,
+    content: String,
+    tags: [String],
+    createdAt: { type: Date, default: Date.now },
+});
+
+const Note = mongoose.model("Note", NoteSchema);
+
+app.post("/notes", async (req, res) => {
+    const note = new Note(req.body);
+    await note.save();
+    res.send(note);
+});
+
+app.get("/notes", async (req, res) => {
+    const notes = await Note.find();
+    res.send(notes);
+});
+
+app.listen(5000, () => {
+    console.log("Server is running on port 5000");
+});
