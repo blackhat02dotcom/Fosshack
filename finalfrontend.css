@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My College Life</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto py-10 text-center">
+        <h1 class="text-3xl font-bold mb-8">Key Features</h1>
+        <button id="theme-toggle" class="mb-4 px-4 py-2 bg-blue-500 text-white rounded">Toggle Theme</button>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <span class="text-3xl">🌍</span>
+                <h2 class="text-xl font-semibold mt-2">AI Travel Agent</h2>
+                <p class="text-gray-400">Plan your trips effortlessly with personalized recommendations and budget-friendly options.</p>
+            </div>
+            <a href="/finance-tracker" class="bg-gray-800 p-6 rounded-lg block hover:bg-gray-700">
+                <span class="text-3xl">💰</span>
+                <h2 class="text-xl font-semibold mt-2">Finance Tracker</h2>
+                <p class="text-gray-400">I'll suggest features specifically tailored for college students' financial needs!</p>
+            </a>
+            <a href="/portfolio-builder" class="bg-gray-800 p-6 rounded-lg block hover:bg-gray-700">
+                <span class="text-3xl">📚</span>
+                <h2 class="text-xl font-semibold mt-2">Portfolio Builder</h2>
+                <p class="text-gray-400">Academic Showcase and Experience Section with tailored features for students.</p>
+            </a>
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <span class="text-3xl">✅</span>
+                <h2 class="text-xl font-semibold mt-2">Task Manager</h2>
+                <p class="text-gray-400">Stay organized with a smart task manager for assignments, exams, and events.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <span class="text-3xl">🤖</span>
+                <h2 class="text-xl font-semibold mt-2">Study Assistant</h2>
+                <p class="text-gray-400">Get instant academic support with our AI-powered study companion.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <span class="text-3xl">🔒</span>
+                <h2 class="text-xl font-semibold mt-2">Secure Platform</h2>
+                <p class="text-gray-400">Focus on your goals while we take care of your privacy and data security.</p>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center py-4 text-gray-500">&copy; 2024 My College Life. All rights reserved.</footer>
+
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('bg-gray-900');
+            document.body.classList.toggle('bg-white');
+            document.body.classList.toggle('text-white');
+            document.body.classList.toggle('text-black');
+        });
+    </script>
+</body>
+</html>
