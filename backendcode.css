@@ -1,0 +1,29 @@
+const express = require('express');
+const path = require('path');
+const app = express();
+const port = 3000;
+
+app.use(express.static('public'));
+
+app.get('/api/features', (req, res) => {
+    res.json([
+        { name: 'AI Travel Agent', description: 'Plan your trips effortlessly with personalized recommendations and budget-friendly options.' },
+        { name: 'Finance Tracker', description: 'Student-Specific Categories, Semester-Based Budgeting, Part-Time Job Tracking, Savings, Shared Expenses, and more.' },
+        { name: 'Portfolio Builder', description: 'Project showcase, coursework, achievements, experience, skills, customization, and career development features.' },
+        { name: 'Task Manager', description: 'Stay organized with a smart task manager for assignments, exams, and events.' },
+        { name: 'Study Assistant', description: 'Get instant academic support with our AI-powered study companion.' },
+        { name: 'Secure Platform', description: 'Focus on your goals while we take care of your privacy and data security.' }
+    ]);
+});
+
+app.get('/finance-tracker', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'finance-tracker.html'));
+});
+
+app.get('/portfolio-builder', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'portfolio-builder.html'));
+});
+
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
